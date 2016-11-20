@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+		<h:form id="DoacaoCadastro">
+			<p:messages id="messages" />
+			<p:panelGrid columns="2">
+				<p:outputLabel for="doacaoTitulo" value="Titulo: " />
+				<p:inputText id="doacaoTitulo" value="#{doacao.titulo}" />
+				<p:outputLabel for="doacaodesc" value="Descricao: " />
+				<p:inputTextarea id="doacaodesc" value="#{doacao.descricao}" />
+				<p:outputLabel for="doacaoCateg" value="Categoria:" />
+				<p:inputTextarea id="doacaoCateg" value="#{doacao.categoria}" />
+				<p:outputLabel for="cnpj" value="Cnpj:" />
+				<p:inputMask id="cnpj" mask="99.999.999/9999-99" value="#{doacao.cnpj}">
+				<f:converter converterId="converter.CnpjConverter" />
+				</p:inputMask>
+				<h:outputText value="Senha: " />
+				<p:password id="nonFeedback" value="#{doacao.password}" />
+				
+				
+				
+				
+
+				<p:commandButton value="Cadastrar" icon="ui-icon-star"
+					action="#{doacaoController.addDoacao(doacao)}" update="messages">
+				</p:commandButton>
+				<p:commandButton value="Limpar" type="reset" />
+			</p:panelGrid>
+		</h:form>
+
+</h:body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<title>JSF Spring Hibernate Integration</title>
+	<style type="text/css">
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #ccc;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #fff;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #f0f0f0;
+}
+
+.tg .tg-4eph {
+	background-color: #f9f9f9
+}
+</style>
+
+<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet" />
+
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" />
+
+	<!-- Compiled and minified JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+</h:head>
+
+<h:body>
+	
+		<nav class="teal accent-4">
+	<div class="nav-wrapper grey darken-4">
+		<a href="#" class="brand-logo" style="margin-left: 10px;">doe<b>AQUI</b></a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a href="post-doacao.xhtml">Doações</a></li>
+			<li><a href="cadastro.xhtml">Cadastre-se</a></li>
+			<!-- Dropdown Trigger -->
+			<li><a class="dropdown-button" href="login.xhtml"
+				data-activates="dropdown1">Login<i class="material-icons right">arrow_drop_down</i></a></li>
+		</ul>
+	</div>
+	</nav>
+
+	<br />
+	<h3>Doacao List</h3>
+
+
+	<h4>Quantidade de doacoes:</h4>
+
+
+	<ul>
+		<ui:repeat value="#{doacaoController.listDoacao()}" var="doacao">
+			<li><h:link value="#{doacao.titulo}" outcome="doacao">
+					<ui:param name="id" value="#{doacao.id}" />
+				</h:link></li>
+		</ui:repeat>
+	</ul>
+
+</h:body>
+
+</html>
+
