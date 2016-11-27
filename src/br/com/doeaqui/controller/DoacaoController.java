@@ -30,6 +30,7 @@ public class DoacaoController {
 		doacaoService = new DoacaoServiceImpl(dao);
 
 	}
+	@Transactional
 	public void addDoacao(Doacao doacao) {
 
 		try {
